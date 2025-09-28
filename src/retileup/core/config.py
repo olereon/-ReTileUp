@@ -159,7 +159,7 @@ class Config(BaseModel):
         config_path.parent.mkdir(parents=True, exist_ok=True)
 
         # Convert to dict and handle Path objects
-        config_dict = self.dict()
+        config_dict = self.model_dump()
 
         def convert_paths(obj: Any) -> Any:
             if isinstance(obj, Path):

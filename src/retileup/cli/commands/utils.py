@@ -168,7 +168,7 @@ def list_tools_command(
     try:
         # Get registry and tool information
         registry = get_global_registry()
-        tools_info = registry.list_tools(include_metadata=detailed)
+        tools_info = registry.list_tools(include_metadata=True)  # Always get metadata for CLI display
 
         if not tools_info:
             if format_type == "table":
@@ -178,7 +178,7 @@ def list_tools_command(
                 console.print(json.dumps({"tools": [], "message": "No tools available"}))
             elif format_type == "yaml":
                 console.print(yaml.dump({"tools": [], "message": "No tools available"}))
-            raise typer.Exit(0)
+            return
 
         # Display registry statistics if verbose and table format
         if verbose and format_type == "table" and not quiet:
@@ -225,8 +225,11 @@ def list_tools_command(
             output = format_tool_info_yaml(tools_info, detailed)
             console.print(output)
 
-        raise typer.Exit(0)
+        return
 
+    except typer.Exit:
+        # Re-raise typer.Exit exceptions without handling them
+        raise
     except Exception as e:
         if verbose:
             console.print_exception()
@@ -479,10 +482,13 @@ def validate_command(
 
         # Exit with appropriate code
         if validation_result["valid"]:
-            raise typer.Exit(0)
+            return
         else:
             raise typer.Exit(2)
 
+    except typer.Exit:
+        # Re-raise typer.Exit exceptions without handling them
+        raise
     except Exception as e:
         if verbose:
             console.print_exception()

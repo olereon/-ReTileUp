@@ -137,7 +137,7 @@ class ToolRegistry:
         """Register a tool class with enhanced validation.
 
         Args:
-            tool_class: The tool class to register
+            tool_class: The tool class to register (can be class or instance)
             name: Optional custom name for the tool
             force: Whether to force registration even if tool exists
 
@@ -146,14 +146,34 @@ class ToolRegistry:
         """
         with self._lock:
             try:
-                # Validate the tool class
-                self._validate_tool_class(tool_class)
+                # Handle case where an instance is passed instead of a class
+                if not isinstance(tool_class, type):
+                    # If it's an instance, get its class
+                    actual_tool_class = type(tool_class)
+                else:
+                    actual_tool_class = tool_class
 
-                # Create instance to get metadata
-                tool_instance = tool_class()
-                tool_name = name or tool_instance.name
-                tool_version = tool_instance.version
-                tool_description = tool_instance.description
+                # Validate the tool class
+                self._validate_tool_class(actual_tool_class)
+
+                # Create instance to get metadata (handle instantiation failures)
+                try:
+                    if isinstance(tool_class, type):
+                        # It's a class, create an instance
+                        tool_instance = tool_class()
+                    else:
+                        # It's already an instance
+                        tool_instance = tool_class
+
+                    tool_name = name or tool_instance.name
+                    tool_version = tool_instance.version
+                    tool_description = tool_instance.description
+                except Exception as inst_error:
+                    # If instantiation fails, use class name and defaults
+                    logger.warning(f"Failed to instantiate {actual_tool_class.__name__} for metadata - using defaults: {inst_error}")
+                    tool_name = name or actual_tool_class.__name__.lower().replace('tool', '')
+                    tool_version = "unknown"
+                    tool_description = f"Tool class {actual_tool_class.__name__} (instantiation may fail)"
 
                 # Check for existing registration
                 if tool_name in self._tools and not force:
@@ -167,12 +187,12 @@ class ToolRegistry:
 
                 # Create metadata
                 metadata = ToolMetadata(
-                    tool_class=tool_class,
+                    tool_class=actual_tool_class,
                     name=tool_name,
                     version=tool_version,
                     description=tool_description,
                     registration_time=time.time(),
-                    source_module=tool_class.__module__,
+                    source_module=actual_tool_class.__module__,
                 )
 
                 # Register the tool
@@ -180,13 +200,13 @@ class ToolRegistry:
 
                 logger.info(
                     f"Registered tool: {tool_name} v{tool_version} "
-                    f"from {tool_class.__module__}"
+                    f"from {actual_tool_class.__module__}"
                 )
 
             except Exception as e:
                 raise registry_error(
-                    f"Failed to register tool {tool_class.__name__}: {str(e)}",
-                    tool_name=getattr(tool_class, "name", tool_class.__name__),
+                    f"Failed to register tool {actual_tool_class.__name__}: {str(e)}",
+                    tool_name=getattr(tool_instance if 'tool_instance' in locals() else actual_tool_class, "name", actual_tool_class.__name__),
                     operation="register",
                     cause=e,
                 ) from e
@@ -214,7 +234,16 @@ class ToolRegistry:
                 error_code=ErrorCode.TOOL_REGISTRATION_ERROR,
             )
 
-        # Try to instantiate and check required methods
+        # Check required methods exist at class level (don't instantiate yet)
+        required_methods = ["get_config_schema", "validate_config", "execute"]
+        for method in required_methods:
+            if not hasattr(tool_class, method):
+                raise RegistryError(
+                    f"Tool {tool_class.__name__} must implement {method} method",
+                    error_code=ErrorCode.TOOL_REGISTRATION_ERROR,
+                )
+
+        # Try to instantiate only to check properties (optional validation)
         try:
             instance = tool_class()
 
@@ -228,23 +257,14 @@ class ToolRegistry:
                         error_code=ErrorCode.TOOL_REGISTRATION_ERROR,
                     )
 
-            # Check required methods
-            required_methods = ["get_config_schema", "validate_config", "execute"]
-            for method in required_methods:
-                if not hasattr(instance, method) or not callable(getattr(instance, method)):
-                    raise RegistryError(
-                        f"Tool {tool_class.__name__} must implement {method} method",
-                        error_code=ErrorCode.TOOL_REGISTRATION_ERROR,
-                    )
-
-        except Exception as e:
-            if isinstance(e, RegistryError):
-                raise
-            raise RegistryError(
-                f"Tool {tool_class.__name__} failed validation: {str(e)}",
-                error_code=ErrorCode.TOOL_REGISTRATION_ERROR,
-                cause=e,
-            ) from e
+        except RegistryError:
+            # Re-raise registry errors as-is
+            raise
+        except Exception:
+            # For other exceptions during instantiation, we'll allow registration
+            # but warn that instantiation might fail later
+            logger.warning(f"Tool {tool_class.__name__} failed instantiation during validation - "
+                         "registration allowed but creation may fail")
 
     def unregister_tool(self, name: str) -> bool:
         """Unregister a tool with logging and cleanup.
@@ -307,6 +327,17 @@ class ToolRegistry:
                     cause=e,
                 ) from e
         return None
+
+    def get_tool(self, name: str) -> Optional[BaseTool]:
+        """Get a tool instance by name (alias for create_tool).
+
+        Args:
+            name: Name of the tool
+
+        Returns:
+            Tool instance or None if tool not found
+        """
+        return self.create_tool(name)
 
     def get_tool_metadata(self, name: str) -> Optional[Dict[str, Any]]:
         """Get comprehensive metadata for a tool.
@@ -449,40 +480,118 @@ class ToolRegistry:
         Returns:
             Number of tools loaded from the file
         """
-        spec = importlib.util.spec_from_file_location(
-            plugin_file.stem, plugin_file
-        )
-        if not spec or not spec.loader:
-            logger.warning(f"Could not create module spec for {plugin_file}")
+        # Check if this is a built-in tool (in retileup package structure)
+        retileup_root = Path(__file__).parent.parent
+        try:
+            relative_path = plugin_file.relative_to(retileup_root)
+            is_builtin = True
+        except ValueError:
+            is_builtin = False
+
+        if is_builtin:
+            # Handle built-in tools using proper package imports
+            return self._load_builtin_tool(plugin_file, relative_path)
+        else:
+            # Handle external plugins using isolated loading
+            return self._load_external_plugin(plugin_file)
+
+    def _load_builtin_tool(self, plugin_file: Path, relative_path: Path) -> int:
+        """Load a built-in tool using proper package imports.
+
+        Args:
+            plugin_file: Path to the tool file
+            relative_path: Relative path from retileup root
+
+        Returns:
+            Number of tools loaded from the file
+        """
+        try:
+            # Convert file path to module name
+            module_parts = relative_path.parts[:-1] + (relative_path.stem,)
+            module_name = f"retileup.{'.'.join(module_parts)}"
+
+            # Import using standard Python import mechanism
+            module = importlib.import_module(module_name)
+
+            tools_loaded = 0
+
+            # Look for tool classes in the module
+            for attr_name in dir(module):
+                attr = getattr(module, attr_name)
+                if (
+                    isinstance(attr, type) and
+                    issubclass(attr, BaseTool) and
+                    attr is not BaseTool
+                ):
+                    try:
+                        self.register_tool(attr)
+
+                        # Add plugin path to metadata
+                        tool_instance = attr()
+                        metadata = self._tools.get(tool_instance.name)
+                        if metadata:
+                            metadata.plugin_path = plugin_file
+
+                        tools_loaded += 1
+                        logger.debug(f"Loaded built-in tool {attr_name} from {module_name}")
+                    except Exception as e:
+                        logger.error(f"Failed to register built-in tool {attr_name} from {module_name}: {e}")
+
+            return tools_loaded
+
+        except Exception as e:
+            logger.error(f"Failed to load built-in tool {plugin_file}: {e}")
             return 0
 
-        module = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(module)
+    def _load_external_plugin(self, plugin_file: Path) -> int:
+        """Load an external plugin file using isolated loading.
 
-        tools_loaded = 0
+        Args:
+            plugin_file: Path to the plugin file
 
-        # Look for tool classes in the module
-        for attr_name in dir(module):
-            attr = getattr(module, attr_name)
-            if (
-                isinstance(attr, type) and
-                issubclass(attr, BaseTool) and
-                attr is not BaseTool
-            ):
-                try:
-                    self.register_tool(attr)
+        Returns:
+            Number of tools loaded from the file
+        """
+        try:
+            spec = importlib.util.spec_from_file_location(
+                plugin_file.stem, plugin_file
+            )
+            if not spec or not spec.loader:
+                logger.warning(f"Could not create module spec for {plugin_file}")
+                return 0
 
-                    # Add plugin path to metadata
-                    tool_instance = attr()
-                    metadata = self._tools.get(tool_instance.name)
-                    if metadata:
-                        metadata.plugin_path = plugin_file
+            module = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(module)
 
-                    tools_loaded += 1
-                except Exception as e:
-                    logger.error(f"Failed to register tool {attr_name} from {plugin_file}: {e}")
+            tools_loaded = 0
 
-        return tools_loaded
+            # Look for tool classes in the module
+            for attr_name in dir(module):
+                attr = getattr(module, attr_name)
+                if (
+                    isinstance(attr, type) and
+                    issubclass(attr, BaseTool) and
+                    attr is not BaseTool
+                ):
+                    try:
+                        self.register_tool(attr)
+
+                        # Add plugin path to metadata
+                        tool_instance = attr()
+                        metadata = self._tools.get(tool_instance.name)
+                        if metadata:
+                            metadata.plugin_path = plugin_file
+
+                        tools_loaded += 1
+                        logger.debug(f"Loaded external plugin {attr_name} from {plugin_file}")
+                    except Exception as e:
+                        logger.error(f"Failed to register external plugin {attr_name} from {plugin_file}: {e}")
+
+            return tools_loaded
+
+        except Exception as e:
+            logger.error(f"Failed to load external plugin {plugin_file}: {e}")
+            return 0
 
     def auto_discover_tools(self, force_refresh: bool = False) -> int:
         """Automatically discover and load tools from all directories.

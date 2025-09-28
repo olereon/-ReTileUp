@@ -300,8 +300,8 @@ def tile_command(
                     if len(result.output_files) > 10:
                         console.print(f"  [dim]... and {len(result.output_files) - 10} more files[/dim]")
 
-            # Exit with success
-            raise typer.Exit(0)
+            # Function completed successfully
+            return
         else:
             console.print(f"[red]✗ Tiling failed:[/red] {result.message}")
 
@@ -320,6 +320,9 @@ def tile_command(
     except ProcessingError as e:
         console.print(f"[red]Processing error:[/red] {e}")
         raise typer.Exit(3)
+    except typer.Exit:
+        # Re-raise typer.Exit exceptions without handling them
+        raise
     except Exception as e:
         if verbose:
             console.print_exception()

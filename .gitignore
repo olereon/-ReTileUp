@@ -184,6 +184,8 @@ Thumbs.db
 # Project-specific
 outputs/
 temp/
+0_tmp/
+logs/
 test_images/
 test_outputs/
 benchmark_results/
@@ -205,3 +207,29 @@ config/secrets.yml
 # Documentation
 docs/build/
 docs/source/_build/
+
+# Serena specific
+.serena/
+
+# Coverage and test reports
+coverage.json
+test_report.json
+TESTING_INFRASTRUCTURE_REPORT.md
+
+# Claude specific
+CLAUDE.md
+
+# Development scripts and tools
+batch_tile.py
+parallel_tile.sh
+tiling-workflow.yaml
+
+# Runtime tracking files
+processed.txt
+
+# Test files
+test_image.jpg
+
+# Output directories (already have outputs/ but adding more specific ones)
+output/
+output/*/

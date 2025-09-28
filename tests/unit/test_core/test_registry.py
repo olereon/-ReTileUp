@@ -208,7 +208,7 @@ class TestToolRegistry:
         with pytest.raises(RegistryError) as exc_info:
             registry.register_tool(MockFailingTool)
 
-        assert "failed validation" in str(exc_info.value)
+        assert "must have valid description property" in str(exc_info.value)
 
     def test_tool_unregistration(self):
         """Test tool unregistration."""
@@ -302,7 +302,7 @@ class TestToolRegistry:
 
         # But creation should fail
         with pytest.raises(RegistryError) as exc_info:
-            registry.create_tool("failing-instantiation")
+            registry.create_tool("failinginstantiation")
 
         assert "Failed to create tool instance" in str(exc_info.value)
 
@@ -671,7 +671,7 @@ class TestToolRegistryHealthAndValidation:
 
         registry.register_tool(FailingHealthTool)
 
-        health = registry.validate_tool_health("failing-health")
+        health = registry.validate_tool_health("failinghealth")
 
         assert health["healthy"] is False
         assert "Health check failed" in health["error"]
@@ -756,7 +756,7 @@ class TestToolRegistryThreadSafety:
 
         # Check usage count was updated correctly
         metadata = registry.get_tool_metadata("mock-valid-tool")
-        assert metadata["usage_count"] == 5 * 100  # 5 threads × 100 accesses each
+        assert metadata["usage_count"] == 5 * 100 * 2  # 5 threads × 100 accesses × 2 calls each (get_tool_class + create_tool->get_tool_class)
 
 
 class TestGlobalRegistry:

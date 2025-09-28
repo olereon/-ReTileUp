@@ -250,7 +250,7 @@ class Workflow(BaseModel):
 
     def to_dict(self) -> Dict[str, Any]:
         """Convert workflow to dictionary."""
-        return self.dict()
+        return self.model_dump()
 
     @classmethod
     def from_dict(cls, data: Dict[str, Any]) -> "Workflow":

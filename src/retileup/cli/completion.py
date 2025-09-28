@@ -161,7 +161,7 @@ def install_completion_command(
                 console.print("eval \"$(_RETILEUP_COMPLETE=zsh_source retileup)\"   # For zsh")
                 console.print("eval (env _RETILEUP_COMPLETE=fish_source retileup)    # For fish")
 
-            raise typer.Exit(0)
+            return
 
         # Auto-detect shell if needed
         if shell == "auto":
@@ -219,7 +219,7 @@ def install_completion_command(
 
                     if "_RETILEUP_COMPLETE" in content:
                         console.print("[yellow]Completion already installed[/yellow]")
-                        raise typer.Exit(0)
+                        return
 
                 # Add completion line to shell config
                 with open(completion_dir, 'a', encoding='utf-8') as f:

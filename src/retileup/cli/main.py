@@ -35,6 +35,12 @@ class GlobalState:
         self.verbose: bool = False
         self.quiet: bool = False
 
+    def reset(self):
+        """Reset global state to initial values."""
+        self.config_file = None
+        self.verbose = False
+        self.quiet = False
+
 global_state = GlobalState()
 
 
@@ -152,12 +158,14 @@ try:
     from .commands.tile import tile_command
     from .commands.workflow import workflow_command
     from .commands.utils import list_tools_command, validate_command
+    from .commands.batch_rename import batch_rename_command
 
     # Register commands directly
     app.command(name="tile")(tile_command)
     app.command(name="workflow")(workflow_command)
     app.command(name="list-tools")(list_tools_command)
     app.command(name="validate")(validate_command)
+    app.command(name="batch-rename")(batch_rename_command)
 
 except ImportError as e:
     # Commands not yet implemented - will be created

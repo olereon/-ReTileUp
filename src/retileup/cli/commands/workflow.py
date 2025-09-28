@@ -316,7 +316,7 @@ def workflow_command(
         if dry_run:
             console.print("[green]✓[/green] Workflow validation passed - ready for execution")
             console.print("[yellow]Dry run completed - no files were processed[/yellow]")
-            raise typer.Exit(0)
+            return
 
         # Execute workflow
         if not quiet:
@@ -422,7 +422,7 @@ def workflow_command(
                 raise typer.Exit(1)
         else:
             # All successful
-            raise typer.Exit(0)
+            return
 
     except FileNotFoundError as e:
         console.print(f"[red]Configuration error:[/red] {e}")
@@ -439,6 +439,9 @@ def workflow_command(
     except ProcessingError as e:
         console.print(f"[red]Processing error:[/red] {e}")
         raise typer.Exit(3)
+    except typer.Exit:
+        # Re-raise typer.Exit exceptions without handling them
+        raise
     except Exception as e:
         if verbose:
             console.print_exception()
