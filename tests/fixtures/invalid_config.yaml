@@ -1,0 +1,33 @@
+# Invalid YAML configuration for testing error handling
+# This file intentionally contains YAML syntax errors
+
+# Missing closing bracket
+invalid_list: [item1, item2, item3
+
+# Invalid indentation
+bad_section:
+  valid_key: value
+bad_indentation: another_value
+
+# Unclosed string
+unclosed_string: "this string is not closed
+
+# Invalid mapping
+invalid_mapping:
+  - key_without_value:
+  - another_invalid:
+    nested_without_value:
+
+# Duplicate keys (YAML allows this but it's often unintended)
+duplicate_key: "first_value"
+duplicate_key: "second_value"
+
+# Invalid characters in key
+invalid@key: "value"
+
+# Missing colon
+missing_colon "value"
+
+# Tab characters mixed with spaces (bad practice)
+	tab_indented: value
+    space_indented: value

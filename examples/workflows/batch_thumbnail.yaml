@@ -1,0 +1,104 @@
+# Batch Thumbnail Generation Workflow
+# This workflow demonstrates batch processing for thumbnail generation
+
+name: "batch_thumbnail"
+version: "1.0.0"
+description: "Batch workflow for generating thumbnails in multiple sizes"
+author: "ReTileUp Team"
+tags: ["batch", "thumbnail", "multi-size"]
+
+# Global parameters
+global_parameters:
+  thumbnail_sizes:
+    - {width: 150, height: 150, suffix: "_thumb"}
+    - {width: 300, height: 300, suffix: "_medium"}
+    - {width: 600, height: 600, suffix: "_large"}
+  output_format: "JPEG"
+  quality: 85
+  maintain_aspect: true
+
+# Workflow steps
+steps:
+  - name: "load_source"
+    tool_name: "batch_loader"
+    description: "Load source images for batch processing"
+    parameters:
+      input_pattern: "*.{jpg,jpeg,png,bmp,tiff}"
+      recursive: true
+      validate_images: true
+      sort_by: "name"
+    enabled: true
+
+  - name: "generate_small_thumb"
+    tool_name: "thumbnail_generator"
+    description: "Generate small thumbnails (150x150)"
+    parameters:
+      width: 150
+      height: 150
+      method: "lanczos"
+      maintain_aspect: "{{ global_parameters.maintain_aspect }}"
+      background_color: "#FFFFFF"
+      output_suffix: "_thumb"
+    enabled: true
+    tags: ["thumbnail", "small"]
+
+  - name: "generate_medium_thumb"
+    tool_name: "thumbnail_generator"
+    description: "Generate medium thumbnails (300x300)"
+    parameters:
+      width: 300
+      height: 300
+      method: "lanczos"
+      maintain_aspect: "{{ global_parameters.maintain_aspect }}"
+      background_color: "#FFFFFF"
+      output_suffix: "_medium"
+    enabled: true
+    tags: ["thumbnail", "medium"]
+
+  - name: "generate_large_thumb"
+    tool_name: "thumbnail_generator"
+    description: "Generate large thumbnails (600x600)"
+    parameters:
+      width: 600
+      height: 600
+      method: "lanczos"
+      maintain_aspect: "{{ global_parameters.maintain_aspect }}"
+      background_color: "#FFFFFF"
+      output_suffix: "_large"
+    enabled: true
+    tags: ["thumbnail", "large"]
+
+  - name: "optimize_all"
+    tool_name: "batch_optimizer"
+    description: "Optimize all generated thumbnails"
+    parameters:
+      compression_level: 9
+      strip_metadata: true
+      progressive: false
+      quality: "{{ global_parameters.quality }}"
+    enabled: true
+    tags: ["optimization", "batch"]
+
+  - name: "generate_manifest"
+    tool_name: "manifest_generator"
+    description: "Generate processing manifest"
+    parameters:
+      include_metadata: true
+      include_file_sizes: true
+      format: "json"
+      output_filename: "thumbnail_manifest.json"
+    enabled: true
+    tags: ["manifest", "metadata"]
+
+# Execution settings
+parallel_execution: true
+stop_on_error: false  # Continue processing other images if one fails
+max_concurrent_steps: 3
+
+# Error handling
+retry_failed_steps: true
+max_retries: 2
+
+# Progress tracking
+show_progress: true
+progress_format: "detailed"

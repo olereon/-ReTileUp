@@ -1,0 +1,10 @@
+app_name: ReTileUp
+defaults:
+  format: PNG
+  optimize: true
+  quality: 95
+tiling:
+  default_size: 256
+  overlap: 10
+  parallel: true
+version: 1.0.0

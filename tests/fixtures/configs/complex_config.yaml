@@ -1,0 +1,25 @@
+app_name: ReTileUp
+debug: false
+defaults:
+  format: PNG
+  optimize: true
+  preserve_metadata: true
+  quality: 95
+output:
+  create_directories: true
+  naming_pattern: '{basename}_{index:03d}.{ext}'
+  overwrite_existing: false
+tiling:
+  default_size: 512
+  max_tiles: 1000
+  overlap: 20
+  parallel: true
+  workers: 4
+tools:
+  tiling_tool:
+    config:
+      algorithm: grid
+      edge_handling: clip
+    enabled: true
+    priority: 1
+version: 1.0.0

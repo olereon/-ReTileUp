@@ -1,0 +1,13 @@
+for CLAUDE CODE
+
+claude mcp add magic --scope user --env API_KEY="a50516e4a5ea763b10ba2e46cc71b0983a9a9cb440c6b67c7fbef0af0f9d6657" -- npx -y @21st-dev/magic@latest
+
+claude mcp add tavily --scope user --env API_KEY="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" -- npx -y tavily/mcp@0.2.3
+
+export TWENTYFIRST_API_KEY="a50516e4a5ea763b10ba2e46cc71b0983a9a9cb440c6b67c7fbef0af0f9d6657"
+
+export MORPH_API_KEY="sk-kva2LmMIVziPVl5zYUSw3j4l4nUiEVbQO-sIadg85ZXunfJ-"
+
+
+====================
+

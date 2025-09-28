@@ -1,0 +1,26 @@
+CODERABBIT CLI
+
+===== Try CodeRabbit CLI with AI Coding Agents =====
+
+How it works:
+1. Give your AI assistant a coding task that includes reviewing it using CodeRabbit
+2. The AI writes code, runs `coderabbit review --plain`, and applies suggestions
+3. This creates an automated code improvement loop
+
+Example prompt to try:
+
+Implement a JSON parser in Go without using the standard library. Run `coderabbit review --plain` to get comprehensive code analysis and improvement suggestions. Apply the feedback to write cleaner, more maintainable code.
+
+Review Modes:
+   --plain            : Detailed feedback with fix suggestions
+   --prompt-only      : Minimal output for token efficiency
+
+Quick Commands:
+  coderabbit --plain         # Detailed analysis
+  coderabbit --prompt-only   # Token-efficient
+  cr --help                  # Show all options
+
+Note: Run commands from your git repository root directory
+
+Token
+Y29kZXJhYmJpdC1jbGk6Ly9hdXRoLWNhbGxiYWNrP2NvZGU9NTk0YTk4OGNhYjcyY2Q1ZjlkY2Imc3RhdGU9MjZjOTQ2MWItM2M4Ny00ZjEwLWE1NzQtOTczMDBiZDliMTQ2JnByb3ZpZGVyPWdpdGh1YiZzZWxmSG9zdGVkRG9tYWluPSZyZWRpcmVjdF91cmk9

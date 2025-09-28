@@ -1,0 +1,62 @@
+# Basic Image Resize Workflow
+# This workflow demonstrates basic image resizing functionality
+
+name: "basic_resize"
+version: "1.0.0"
+description: "Basic workflow for resizing images to specified dimensions"
+author: "ReTileUp Team"
+tags: ["basic", "resize", "example"]
+
+# Global parameters that can be referenced by steps
+global_parameters:
+  target_width: 800
+  target_height: 600
+  output_format: "PNG"
+  quality: 95
+
+# Workflow steps
+steps:
+  - name: "load_image"
+    tool_name: "image_loader"
+    description: "Load the input image"
+    parameters:
+      validate_format: true
+      auto_orient: true
+    enabled: true
+
+  - name: "resize"
+    tool_name: "resize_tool"
+    description: "Resize image to target dimensions"
+    parameters:
+      width: "{{ global_parameters.target_width }}"
+      height: "{{ global_parameters.target_height }}"
+      method: "lanczos"
+      maintain_aspect: true
+    enabled: true
+    tags: ["resize", "transform"]
+
+  - name: "optimize"
+    tool_name: "image_optimizer"
+    description: "Optimize the resized image"
+    parameters:
+      compression_level: 9
+      strip_metadata: false
+    enabled: true
+    tags: ["optimize"]
+
+  - name: "save_result"
+    tool_name: "image_saver"
+    description: "Save the processed image"
+    parameters:
+      format: "{{ global_parameters.output_format }}"
+      quality: "{{ global_parameters.quality }}"
+      overwrite: false
+    enabled: true
+
+# Execution settings
+parallel_execution: false
+stop_on_error: true
+
+# Metadata
+created_at: "2024-01-01T00:00:00Z"
+modified_at: "2024-01-01T00:00:00Z"

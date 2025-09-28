@@ -1,0 +1,96 @@
+{
+  "name": "Login to Freepik page",
+  "version": "1.0.0",
+  "settings": {
+    "secure": true,
+    "encrypt_sensitive_data": true,
+    "mask_sensitive_data": true
+  },
+  "variables": {
+    "login_url": "https://www.freepik.com/",
+    "email": "shyraoleg@outlook.com",
+    "password": "Freep!kyah2o25"
+  },
+  "hooks": {
+    "before_start": [
+      {
+        "name": "Log start",
+        "action": "execute_script",
+        "value": "console.log('Workflow starting');"
+      }
+    ],
+    "after_end": [
+      {
+        "name": "Log end",
+        "action": "execute_script",
+        "value": "console.log('Workflow ended');"
+      }
+    ]
+  },
+  "steps": [
+    {
+      "name": "Navigate to home page",
+      "action": "navigate",
+      "url": "${login_url}"
+    },
+    {
+      "name": "Click sign-in button",
+      "action": "click",
+      "selector": "xpath=//a[@data-cy='signin-button']"
+    },
+    {
+      "name": "Wait for login page to load",
+      "action": "wait_for",
+      "selector": "css=.main-button.button.button--outline.button--with-icon >> text=Continue with email",
+      "timeout": 4
+    },
+    {
+      "name": "Click Continue with email button",
+      "action": "click",
+      "selector": "css=.main-button.button.button--outline.button--with-icon >> text=Continue with email"
+    },
+    {
+      "name": "Wait for input email field",
+      "action": "wait_for",
+      "selector": "xpath=//div/label/input[@name='email']",
+      "timeout": 2
+    },
+    {
+      "name": "Enter email",
+      "action": "type",
+      "selector": "xpath=//div/label/input[@name='email']",
+      "value": "${email}"
+    },
+    {
+      "name": "Wait a moment #001",
+      "action": "wait",
+      "value": 2 
+    },
+    {
+      "name": "Enter password",
+      "action": "type",
+      "selector": "xpath=//div/label/input[@name='password']",
+      "value": "${password}"
+    },
+    {
+      "name": "Wait a moment #002",
+      "action": "wait",
+      "value": 2
+    },
+    {
+      "name": "Click stay logged in checkbox",
+      "action": "click",
+      "selector": "xpath=//div/label/input[@name='keep-signed']"
+    },
+    {
+      "name": "Wait a moment #003",
+      "action": "wait",
+      "value": 2
+    },
+    {
+      "name": "Click login button",
+      "action": "execute_script",
+      "value": "document.querySelector('#submit').click();"
+    }
+  ]
+}

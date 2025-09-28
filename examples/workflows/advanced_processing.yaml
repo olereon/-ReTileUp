@@ -1,0 +1,109 @@
+# Advanced Image Processing Workflow
+# This workflow demonstrates advanced image processing with multiple steps
+
+name: "advanced_processing"
+version: "1.0.0"
+description: "Advanced workflow with color correction, sharpening, and format conversion"
+author: "ReTileUp Team"
+tags: ["advanced", "color", "sharpening", "conversion"]
+
+# Global parameters
+global_parameters:
+  brightness_adjustment: 1.1
+  contrast_adjustment: 1.2
+  saturation_adjustment: 1.15
+  sharpen_amount: 0.5
+  output_quality: 90
+
+# Workflow steps
+steps:
+  - name: "load_and_validate"
+    tool_name: "image_loader"
+    description: "Load and validate input image"
+    parameters:
+      validate_format: true
+      check_corruption: true
+      auto_orient: true
+      color_profile: "sRGB"
+    enabled: true
+    timeout: 30.0
+
+  - name: "color_correction"
+    tool_name: "color_corrector"
+    description: "Apply color corrections"
+    parameters:
+      brightness: "{{ global_parameters.brightness_adjustment }}"
+      contrast: "{{ global_parameters.contrast_adjustment }}"
+      saturation: "{{ global_parameters.saturation_adjustment }}"
+      gamma: 1.0
+      white_balance: "auto"
+    enabled: true
+    tags: ["color", "enhancement"]
+
+  - name: "noise_reduction"
+    tool_name: "noise_reducer"
+    description: "Reduce image noise"
+    parameters:
+      algorithm: "bilateral_filter"
+      strength: 0.3
+      preserve_edges: true
+    enabled: true
+    tags: ["noise", "cleanup"]
+
+  - name: "sharpening"
+    tool_name: "sharpening_tool"
+    description: "Apply sharpening filter"
+    parameters:
+      method: "unsharp_mask"
+      amount: "{{ global_parameters.sharpen_amount }}"
+      radius: 1.0
+      threshold: 0.1
+    enabled: true
+    tags: ["sharpening", "enhancement"]
+
+  - name: "resize_smart"
+    tool_name: "smart_resizer"
+    description: "Smart resize with content-aware scaling"
+    parameters:
+      max_width: 1920
+      max_height: 1080
+      upscale_algorithm: "bicubic"
+      downscale_algorithm: "lanczos"
+      content_aware: true
+    enabled: true
+    tags: ["resize", "smart"]
+
+  - name: "watermark"
+    tool_name: "watermark_tool"
+    description: "Add watermark (optional)"
+    parameters:
+      text: "© ReTileUp"
+      position: "bottom_right"
+      opacity: 0.7
+      font_size: 24
+      color: "#FFFFFF"
+    enabled: false  # Disabled by default
+    tags: ["watermark", "branding"]
+
+  - name: "format_conversion"
+    tool_name: "format_converter"
+    description: "Convert to target format with optimization"
+    parameters:
+      target_format: "JPEG"
+      quality: "{{ global_parameters.output_quality }}"
+      progressive: true
+      optimize: true
+      strip_exif: false
+    enabled: true
+    tags: ["conversion", "optimization"]
+
+# Execution settings
+parallel_execution: false
+stop_on_error: true
+max_concurrent_steps: 1
+
+# Workflow validation
+validation:
+  check_dependencies: true
+  validate_parameters: true
+  test_run: false

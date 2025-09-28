@@ -1,0 +1,14 @@
+{
+  "app_name": "ReTileUp",
+  "version": "1.0.0",
+  "defaults": {
+    "format": "PNG",
+    "quality": 95,
+    "optimize": true
+  },
+  "tiling": {
+    "default_size": 256,
+    "overlap": 10,
+    "parallel": true
+  }
+}

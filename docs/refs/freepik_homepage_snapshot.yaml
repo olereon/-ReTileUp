@@ -1,0 +1,572 @@
+# Freepik Homepage Snapshot
+# URL: https://www.freepik.com/
+# Title: Freepik | All-in-One AI Creative Suite
+# Timestamp: 2025-09-19T20:26:24.533Z
+
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - navigation:
+      - generic [ref=e3]:
+        - link "Freepik" [ref=e5] [cursor=pointer]:
+          - /url: /
+          - img [ref=e6]
+        - navigation [ref=e15]:
+          - button "AI Suite" [ref=e16] [cursor=pointer]
+          - generic:
+            - dialog "AI Suite"
+          - button "Stock" [ref=e17] [cursor=pointer]
+          - generic:
+            - dialog "Stock"
+          - button "Resources" [ref=e18] [cursor=pointer]
+          - generic:
+            - dialog "Resources"
+          - link "Enterprise" [ref=e19] [cursor=pointer]:
+            - /url: /enterprise#from_element=mainmenu
+          - link "Pricing" [ref=e20] [cursor=pointer]:
+            - /url: https://www.freepik.com/pricing?origin=freepik_web#from_element=mainmenu
+        - generic [ref=e24]:
+          - button "Open autocomplete" [ref=e25] [cursor=pointer]:
+            - img [ref=e26]
+          - textbox "Search assets or start creating" [active] [ref=e28]
+        - link "Sign in" [ref=e29] [cursor=pointer]:
+          - /url: https://www.freepik.com/log-in?client_id=freepik&lang=en
+    - main [ref=e30]:
+      - generic [ref=e32]:
+        - heading "Creative work, reimagined" [level=1] [ref=e33]
+        - paragraph [ref=e34]: "One suite: top AI models, pro editing tools, and stock assets—trusted by 700,000+ creatives."
+        - link "Get started for free" [ref=e35] [cursor=pointer]:
+          - /url: https://www.freepik.com/log-in?client_id=freepik&lang=en#from_element=home_hero
+          - text: Get started for free
+          - img [ref=e36]
+      - generic [ref=e38]:
+        - generic:
+          - generic:
+            - generic:
+              - img "top left image"
+            - generic:
+              - img "bottom left image"
+            - generic:
+              - img "right image"
+      - generic [ref=e42]:
+        - heading "You bring the vision. We help you go further." [level=2] [ref=e43]:
+          - generic [ref=e44]: You bring the vision. We help you go further.
+        - paragraph [ref=e45]:
+          - text: Join
+          - strong [ref=e46]: 700,000
+          - text: creative teams, marketers, and designers worldwide.
+        - generic [ref=e47]:
+          - img "google" [ref=e48]
+          - img "nubank" [ref=e49]
+          - img "hello-fresh" [ref=e50]
+          - img "coca-cola" [ref=e51]
+          - img "ogilvy" [ref=e52]
+      - generic [ref=e53]:
+        - generic [ref=e54]:
+          - heading "The features you need, the simplicity you want" [level=3] [ref=e55]
+          - button "How to start with AI" [ref=e57] [cursor=pointer]
+        - generic [ref=e58]:
+          - generic [ref=e62]:
+            - button "Images" [ref=e63] [cursor=pointer]
+            - button "Video" [ref=e64] [cursor=pointer]
+            - button "Audio" [ref=e65] [cursor=pointer]
+            - button "Illustrations" [ref=e66] [cursor=pointer]
+            - button "Design" [ref=e67] [cursor=pointer]
+            - link "All AI tools" [ref=e68] [cursor=pointer]:
+              - /url: /ai#from_element=home_tools
+              - button "All AI tools" [ref=e69]:
+                - text: All AI tools
+                - img [ref=e70]
+          - generic [ref=e75]:
+            - generic [ref=e76]:
+              - link "Learn more, Generate an AI image Generate an AI image Try it" [ref=e77] [cursor=pointer]:
+                - /url: https://www.freepik.com/pikaso/ai-image-generator#from_element=home_tools&from_view=images
+                - generic [ref=e78]:
+                  - img "Learn more, Generate an AI image" [ref=e79]
+                  - paragraph [ref=e80]: Generate an AI image
+                  - generic [ref=e81]:
+                    - text: Try it
+                    - img [ref=e82]
+              - link "Learn more, Generate an AI image" [ref=e84] [cursor=pointer]:
+                - /url: https://www.freepik.com/ai/image-generator#from_element=home_tools&from_view=images
+                - img [ref=e85]
+            - link "Learn more, Chat with AI to transform images Chat with AI to transform images Try it" [ref=e89] [cursor=pointer]:
+              - /url: https://www.freepik.com/pikaso/assistant#from_element=home_tools&from_view=images
+              - generic [ref=e90]:
+                - img "Learn more, Chat with AI to transform images" [ref=e91]
+                - paragraph [ref=e92]: Chat with AI to transform images
+                - generic [ref=e93]:
+                  - text: Try it
+                  - img [ref=e94]
+            - link "Learn more, Find high-quality images Find high-quality images Find" [ref=e97] [cursor=pointer]:
+              - /url: https://www.freepik.com/photos#from_element=home_tools&from_view=images
+              - generic [ref=e98]:
+                - img "Learn more, Find high-quality images" [ref=e99]
+                - paragraph [ref=e100]: Find high-quality images
+                - generic [ref=e101]:
+                  - text: Find
+                  - img [ref=e102]
+            - generic [ref=e104]:
+              - link "Learn more, Edit an image Edit an image Try it" [ref=e105] [cursor=pointer]:
+                - /url: https://www.freepik.com/pikaso/image-editor?tool=adjust#from_element=home_tools&from_view=images
+                - generic [ref=e106]:
+                  - img "Learn more, Edit an image" [ref=e107]
+                  - paragraph [ref=e108]: Edit an image
+                  - generic [ref=e109]:
+                    - text: Try it
+                    - img [ref=e110]
+              - link "Learn more, Edit an image" [ref=e112] [cursor=pointer]:
+                - /url: https://www.freepik.com/ai/photo-editor#from_element=home_tools&from_view=images
+                - img [ref=e113]
+            - link "Learn more, Create on-brand AI images Create on-brand AI images Try it" [ref=e117] [cursor=pointer]:
+              - /url: https://www.freepik.com/pikaso/ai-image-generator?colors=1#from_element=home_tools&from_view=images
+              - generic [ref=e118]:
+                - img "Learn more, Create on-brand AI images" [ref=e119]
+                - paragraph [ref=e120]: Create on-brand AI images
+                - generic [ref=e121]:
+                  - text: Try it
+                  - img [ref=e122]
+            - generic [ref=e124]:
+              - link "Learn more, Upscale an image up to 10K Upscale an image up to 10K Try it" [ref=e125] [cursor=pointer]:
+                - /url: https://www.freepik.com/pikaso/upscaler#from_element=home_tools&from_view=images
+                - generic [ref=e126]:
+                  - img "Learn more, Upscale an image up to 10K" [ref=e127]
+                  - paragraph [ref=e128]: Upscale an image up to 10K
+                  - generic [ref=e129]:
+                    - text: Try it
+                    - img [ref=e130]
+              - link "Learn more, Upscale an image up to 10K" [ref=e132] [cursor=pointer]:
+                - /url: https://www.freepik.com/ai/image-upscaler#from_element=home_tools&from_view=images
+                - img [ref=e133]
+      - generic [ref=e136]:
+        - heading "All the top GenAI models—plus Magnific, recently acquired by Freepik" [level=3] [ref=e137]
+        - generic [ref=e140]:
+          - img "runway" [ref=e141]
+          - img "google" [ref=e142]
+          - img "magnific-acquired" [ref=e143]
+          - img "kling" [ref=e144]
+          - img "flux" [ref=e145]
+          - img "chatgpt" [ref=e146]
+          - img "elevenlabs" [ref=e147]
+          - img "runway" [ref=e148]
+          - img "google" [ref=e149]
+          - img "magnific-acquired" [ref=e150]
+          - img "kling" [ref=e151]
+          - img "flux" [ref=e152]
+          - img "chatgpt" [ref=e153]
+          - img "elevenlabs" [ref=e154]
+          - img "runway" [ref=e155]
+          - img "google" [ref=e156]
+          - img "magnific-acquired" [ref=e157]
+          - img "kling" [ref=e158]
+          - img "flux" [ref=e159]
+          - img "chatgpt" [ref=e160]
+          - img "elevenlabs" [ref=e161]
+        - generic [ref=e165]:
+          - button "Image editing" [ref=e166] [cursor=pointer]
+          - button "Image generation" [ref=e167] [cursor=pointer]
+          - button "Video generation" [ref=e168] [cursor=pointer]
+          - button "Video editing" [ref=e169] [cursor=pointer]
+          - button "Audio generation" [ref=e170] [cursor=pointer]
+      - generic [ref=e172]:
+        - heading "All in a single creative suite" [level=3] [ref=e173]
+        - generic [ref=e174]:
+          - button "Social media" [ref=e176] [cursor=pointer]
+          - button "Advertising" [ref=e178] [cursor=pointer]
+          - button "Video creation" [ref=e180] [cursor=pointer]
+          - button "Photography" [ref=e182] [cursor=pointer]
+          - button "Branding" [ref=e184] [cursor=pointer]
+          - button "Printed materials" [ref=e186] [cursor=pointer]
+          - button "Audio creation" [ref=e188] [cursor=pointer]
+        - generic [ref=e190]:
+          - link "card image Try it Auto-resize for each platform. Make your design fit every social format, fast." [ref=e191] [cursor=pointer]:
+            - /url: https://www.freepik.com/pikaso/image-editor#from_element=creative_usecases&from_view=socialMedia
+            - generic [ref=e192]:
+              - img "card image" [ref=e193]
+              - generic [ref=e194]:
+                - text: Try it
+                - img [ref=e195]
+            - paragraph [ref=e197]: Auto-resize for each platform. Make your design fit every social format, fast.
+          - link "card image Try it Create on-brand stories and reels. Stay true to your brand style in every post." [ref=e198] [cursor=pointer]:
+            - /url: https://www.freepik.com/pikaso/ai-image-generator?colors=1#from_element=creative_usecases&from_view=socialMedia
+            - generic [ref=e199]:
+              - img "card image" [ref=e200]
+              - generic [ref=e201]:
+                - text: Try it
+                - img [ref=e202]
+            - paragraph [ref=e204]: Create on-brand stories and reels. Stay true to your brand style in every post.
+          - link "card image Try it Remove background to highlight subjects. Clean up your content and keep the focus on your subject." [ref=e205] [cursor=pointer]:
+            - /url: https://www.freepik.com/pikaso/image-editor?tool=background#from_element=creative_usecases&from_view=socialMedia
+            - generic [ref=e206]:
+              - img "card image" [ref=e207]
+              - generic [ref=e208]:
+                - text: Try it
+                - img [ref=e209]
+            - paragraph [ref=e211]: Remove background to highlight subjects. Clean up your content and keep the focus on your subject.
+          - link "card image Try it Generate social media posts. Need content fast? Get scroll-worthy posts in seconds." [ref=e212] [cursor=pointer]:
+            - /url: https://www.freepik.com/designer/edit?template=new-artboard&size=Instagram+Post&category_name=Instagram+Posts&category_id=1915&lang=en&search=Instagram+Posts#from_element=creative_usecases&from_view=socialMedia
+            - generic [ref=e213]:
+              - img "card image" [ref=e214]
+              - generic [ref=e215]:
+                - text: Try it
+                - img [ref=e216]
+            - paragraph [ref=e218]: Generate social media posts. Need content fast? Get scroll-worthy posts in seconds.
+      - generic [ref=e219]:
+        - generic [ref=e220]:
+          - heading "Boost your professional workflow and productivity" [level=3] [ref=e221]
+          - generic [ref=e222]:
+            - button "Previous" [disabled] [ref=e223]:
+              - img [ref=e224]
+            - button "Next" [ref=e226] [cursor=pointer]:
+              - img [ref=e227]
+        - tablist [ref=e229]:
+          - generic [ref=e231]:
+            - tab "Designers Designers tutorial image Tools that work like you do Streamline your design process with AI-powered tools and high-quality assets that help you work faster and focus on what matters. Automate repetitive tasks, customize assets instantly, and keep every design consistent, secure, and on-brand—without extra effort. View more" [ref=e232]:
+              - generic [ref=e233]:
+                - img "Designers" [ref=e234]
+                - paragraph [ref=e237]: Designers
+                - generic [ref=e239]:
+                  - img "tutorial image" [ref=e240]
+                  - generic [ref=e242]:
+                    - paragraph [ref=e243]: Tools that work like you do
+                    - paragraph [ref=e244]: Streamline your design process with AI-powered tools and high-quality assets that help you work faster and focus on what matters. Automate repetitive tasks, customize assets instantly, and keep every design consistent, secure, and on-brand—without extra effort.
+                  - link "View more" [ref=e247] [cursor=pointer]:
+                    - /url: /ai/graphic-design
+            - tab "Marketers Marketers tutorial image Create faster, explore new possibilities Produce high-quality visuals in seconds with AI tools that open up new creative directions. Adapt assets for every channel, automate repetitive tasks, and scale campaigns—while keeping every piece consistent and on-brand. View more" [ref=e248]:
+              - generic [ref=e249]:
+                - img "Marketers" [ref=e250]
+                - paragraph [ref=e253]: Marketers
+                - generic [ref=e255]:
+                  - img "tutorial image" [ref=e256]
+                  - generic [ref=e258]:
+                    - paragraph [ref=e259]: Create faster, explore new possibilities
+                    - paragraph [ref=e260]: Produce high-quality visuals in seconds with AI tools that open up new creative directions. Adapt assets for every channel, automate repetitive tasks, and scale campaigns—while keeping every piece consistent and on-brand.
+                  - link "View more" [ref=e263] [cursor=pointer]:
+                    - /url: /ai/marketing
+            - tab "Filmmakers Filmmakers tutorial image From concept to cut, faster Upscale footage in a click for streaming, presentations, or final delivery. Instantly generate voiceovers to test edits or polish trailers—no studio required. Create storyboards, shot ideas, or concept art to support your workflow and speed up planning. View more" [ref=e264]:
+              - generic [ref=e265]:
+                - img "Filmmakers" [ref=e266]
+                - paragraph [ref=e269]: Filmmakers
+                - generic [ref=e271]:
+                  - img "tutorial image" [ref=e272]
+                  - generic [ref=e274]:
+                    - paragraph [ref=e275]: From concept to cut, faster
+                    - paragraph [ref=e276]: Upscale footage in a click for streaming, presentations, or final delivery. Instantly generate voiceovers to test edits or polish trailers—no studio required. Create storyboards, shot ideas, or concept art to support your workflow and speed up planning.
+                  - link "View more" [ref=e279] [cursor=pointer]:
+                    - /url: /ai/filmmaking
+            - tab "Content creators Content creators tutorial image Make scroll-stopping content, easily Create videos fast by animating images, adding voiceovers, and generating intros for YouTube, TikTok, or Reels. Save time with AI tools that upscale visuals and help you design eye-catching graphics. Stay on-brand with features that match your style and keep content consistent. View more" [ref=e280]:
+              - generic [ref=e281]:
+                - img "Content creators" [ref=e282]
+                - paragraph [ref=e285]: Content creators
+                - generic [ref=e287]:
+                  - img "tutorial image" [ref=e288]
+                  - generic [ref=e290]:
+                    - paragraph [ref=e291]: Make scroll-stopping content, easily
+                    - paragraph [ref=e292]: Create videos fast by animating images, adding voiceovers, and generating intros for YouTube, TikTok, or Reels. Save time with AI tools that upscale visuals and help you design eye-catching graphics. Stay on-brand with features that match your style and keep content consistent.
+                  - link "View more" [ref=e295] [cursor=pointer]:
+                    - /url: /ai/content-creation
+          - generic [ref=e297]:
+            - tab "Art directors Art directors tutorial image Creative control at every stage Prototype concepts, explore new styles, and shape campaign directions faster with AI tools built for creative leads. Refine visuals with full control over composition and design details. Help your team move from concept to delivery without compromising quality or speed. Sign up" [ref=e298]:
+              - generic [ref=e299]:
+                - img "Art directors" [ref=e300]
+                - paragraph [ref=e303]: Art directors
+                - generic [ref=e305]:
+                  - img "tutorial image" [ref=e306]
+                  - generic [ref=e308]:
+                    - paragraph [ref=e309]: Creative control at every stage
+                    - paragraph [ref=e310]: Prototype concepts, explore new styles, and shape campaign directions faster with AI tools built for creative leads. Refine visuals with full control over composition and design details. Help your team move from concept to delivery without compromising quality or speed.
+                  - link "Sign up" [ref=e313] [cursor=pointer]:
+                    - /url: https://www.freepik.com/log-in?client_id=freepik&lang=en#from_element=home_profession
+            - tab "Photographers Photographers tutorial image Polish your shots in less time Enhance photo quality instantly for large prints, portfolios, or client projects. Retouch and correct details quickly—no complex editing required. Optimize every image for web, social media, print, or delivery from a single file. View more" [ref=e314]:
+              - generic [ref=e315]:
+                - img "Photographers" [ref=e316]
+                - paragraph [ref=e319]: Photographers
+                - generic [ref=e321]:
+                  - img "tutorial image" [ref=e322]
+                  - generic [ref=e324]:
+                    - paragraph [ref=e325]: Polish your shots in less time
+                    - paragraph [ref=e326]: Enhance photo quality instantly for large prints, portfolios, or client projects. Retouch and correct details quickly—no complex editing required. Optimize every image for web, social media, print, or delivery from a single file.
+                  - link "View more" [ref=e329] [cursor=pointer]:
+                    - /url: /ai/photography
+            - tab "Business owners Business owners tutorial image Professional content, simplified Design polished content fast—from social posts to sales materials—always on-brand. Turn ideas into product demos or explainer videos to share with customers or your team. Keep your content looking sharp and on-brand without extra work. View more" [ref=e330]:
+              - generic [ref=e331]:
+                - img "Business owners" [ref=e332]
+                - paragraph [ref=e335]: Business owners
+                - generic [ref=e337]:
+                  - img "tutorial image" [ref=e338]
+                  - generic [ref=e340]:
+                    - paragraph [ref=e341]: Professional content, simplified
+                    - paragraph [ref=e342]: Design polished content fast—from social posts to sales materials—always on-brand. Turn ideas into product demos or explainer videos to share with customers or your team. Keep your content looking sharp and on-brand without extra work.
+                  - link "View more" [ref=e345] [cursor=pointer]:
+                    - /url: /ai/product
+            - tab "Teachers Teachers tutorial image Build great materials in less time Quickly design flashcards, diagrams, or slides to make lessons more visual and engaging. Create short videos from key topics to explain concepts clearly—no need to start from scratch. Upscale your images or scanned worksheets so everything looks sharp in print or on screen. View more" [ref=e346]:
+              - generic [ref=e347]:
+                - img "Teachers" [ref=e348]
+                - paragraph [ref=e351]: Teachers
+                - generic [ref=e353]:
+                  - img "tutorial image" [ref=e354]
+                  - generic [ref=e356]:
+                    - paragraph [ref=e357]: Build great materials in less time
+                    - paragraph [ref=e358]: Quickly design flashcards, diagrams, or slides to make lessons more visual and engaging. Create short videos from key topics to explain concepts clearly—no need to start from scratch. Upscale your images or scanned worksheets so everything looks sharp in print or on screen.
+                  - link "View more" [ref=e361] [cursor=pointer]:
+                    - /url: /ai/education
+      - generic [ref=e362]:
+        - generic [ref=e364]:
+          - heading "Made with Freepik—real work, real results" [level=3] [ref=e365]
+          - generic [ref=e366]:
+            - button "Previous" [ref=e367] [cursor=pointer]:
+              - img [ref=e368]
+            - button "Next" [ref=e370] [cursor=pointer]:
+              - img [ref=e371]
+        - generic [ref=e373]:
+          - generic [ref=e374] [cursor=pointer]:
+            - img "card image" [ref=e375]
+            - button "Play video" [ref=e376]:
+              - img [ref=e378]
+          - generic [ref=e380] [cursor=pointer]:
+            - paragraph [ref=e381]: How to place your product in multiple backgrounds
+            - paragraph [ref=e382]: Use your product as a custom object and place it into different backgrounds in a few clicks. Great for scaling content quickly.
+          - generic:
+            - img "card image"
+            - button "Play video":
+              - generic:
+                - img
+          - generic [ref=e383] [cursor=pointer]:
+            - paragraph [ref=e384]: How to create video photo shoots for products
+            - paragraph [ref=e385]: See your product in different settings—no reshoots, no manual styling. Instant results, always consistent.
+          - generic:
+            - img "card image"
+            - button "Play video":
+              - generic:
+                - img
+          - generic [ref=e386] [cursor=pointer]:
+            - paragraph [ref=e387]: How to turn a product image into a video with effects
+            - paragraph [ref=e388]: Make your product move—transform static visuals into animated videos with effects in no time. Fast and ready to share.
+      - generic [ref=e389]:
+        - paragraph [ref=e390]: Why choose Freepik?
+        - generic [ref=e391]:
+          - generic [ref=e394]:
+            - generic [ref=e395]:
+              - paragraph [ref=e396]: The all-in-one suite for creatives
+              - img [ref=e397]
+            - paragraph [ref=e400]: Power your creativity with leading GenAI models, pro features, and a vast stock library—all in one platform.
+          - generic [ref=e403]:
+            - generic [ref=e404]:
+              - paragraph [ref=e405]: "AI you can trust: private and secure"
+              - img [ref=e406]
+            - paragraph [ref=e408]: Your data is never used to train AI—ours or third-party. You're fully protected with advanced security and full rights.
+          - generic [ref=e411]:
+            - generic [ref=e412]:
+              - paragraph [ref=e413]: Easy to use, with professional results
+              - img [ref=e414]
+            - paragraph [ref=e417]: Stay consistent, adapt assets easily, and create confidently with powerful tools built for real workflows like yours.
+          - generic [ref=e420]:
+            - generic [ref=e421]:
+              - paragraph [ref=e422]: Join the creators shaping AI's future
+              - img [ref=e423]
+            - paragraph [ref=e426]: Be part of a global community of top creatives. Get early access to new tools, share your work, and stay inspired.
+      - generic [ref=e427]:
+        - heading "Plans that cover your needs" [level=3] [ref=e428]
+        - generic [ref=e430]:
+          - paragraph [ref=e431]: Enterprise
+          - paragraph [ref=e432]: Get the best for your organization with a dedicated account manager and priority support.
+          - paragraph [ref=e434]: Custom
+          - link "Learn more" [ref=e435] [cursor=pointer]:
+            - /url: /enterprise#from_element=home_pricing&from_view=enterprise
+          - paragraph [ref=e436]: "Everything in team plans, and:"
+          - generic [ref=e437]:
+            - generic [ref=e438]:
+              - img [ref=e439]
+              - paragraph [ref=e441]: Legal indemnification for AI-generated content
+            - generic [ref=e442]:
+              - img [ref=e443]
+              - paragraph [ref=e445]: Rights over your AI-generated content
+            - generic [ref=e446]:
+              - img [ref=e447]
+              - paragraph [ref=e449]: SSO and enterprise-level security & compliance
+            - generic [ref=e450]:
+              - img [ref=e451]
+              - paragraph [ref=e453]: Expert guidance, training, and technical support
+            - generic [ref=e454]:
+              - img [ref=e455]
+              - paragraph [ref=e457]: Unlimited users, flexible credits
+            - generic [ref=e458]:
+              - img [ref=e459]
+              - paragraph [ref=e461]: 3-month evaluation period
+      - generic [ref=e462]:
+        - heading "Frequently asked questions" [level=3] [ref=e463]
+        - list [ref=e464]:
+          - listitem [ref=e465]:
+            - heading "Is my content private and secure? Does Freepik use my inputs or outputs to train its models?" [level=4] [ref=e466]:
+              - button "Is my content private and secure? Does Freepik use my inputs or outputs to train its models?" [ref=e467] [cursor=pointer]:
+                - generic [ref=e468]: Is my content private and secure? Does Freepik use my inputs or outputs to train its models?
+                - img [ref=e469]
+          - listitem [ref=e471]:
+            - heading "How do credits work, and how many generations do I get per tool?" [level=4] [ref=e472]:
+              - button "How do credits work, and how many generations do I get per tool?" [ref=e473] [cursor=pointer]:
+                - generic [ref=e474]: How do credits work, and how many generations do I get per tool?
+                - img [ref=e475]
+          - listitem [ref=e477]:
+            - heading "Can I use AI-generated content commercially, and do I own the rights to it?" [level=4] [ref=e478]:
+              - button "Can I use AI-generated content commercially, and do I own the rights to it?" [ref=e479] [cursor=pointer]:
+                - generic [ref=e480]: Can I use AI-generated content commercially, and do I own the rights to it?
+                - img [ref=e481]
+          - listitem [ref=e483]:
+            - heading "Do I need to attribute to use Freepik stock content?" [level=4] [ref=e484]:
+              - button "Do I need to attribute to use Freepik stock content?" [ref=e485] [cursor=pointer]:
+                - generic [ref=e486]: Do I need to attribute to use Freepik stock content?
+                - img [ref=e487]
+          - listitem [ref=e489]:
+            - heading "Do you offer legal indemnification for AI and stock content?" [level=4] [ref=e490]:
+              - button "Do you offer legal indemnification for AI and stock content?" [ref=e491] [cursor=pointer]:
+                - generic [ref=e492]: Do you offer legal indemnification for AI and stock content?
+                - img [ref=e493]
+      - generic [ref=e496]:
+        - generic [ref=e497]:
+          - paragraph [ref=e498]: 1 billion
+          - paragraph [ref=e499]: AI images, audio, and videos
+          - paragraph [ref=e500]: Powered by Flux, Kling, Runway, ChatGPT, ElevenLabs, and more.
+        - generic [ref=e501]:
+          - paragraph [ref=e502]: 200 million
+          - paragraph [ref=e503]: Highest-quality stock assets
+          - paragraph [ref=e504]: Icons, videos, audio, images, vectors, and more ready for your next project.
+        - generic [ref=e505]:
+          - paragraph [ref=e506]: 700,000+
+          - paragraph [ref=e507]: Paying customers and growing fast
+          - paragraph [ref=e508]: Unlock all creative possibilities with an all-in-one creative suite.
+      - generic [ref=e510]:
+        - paragraph [ref=e511]: Your vision, elevated
+        - link "Get started for free" [ref=e512] [cursor=pointer]:
+          - /url: https://www.freepik.com/log-in?client_id=freepik&lang=en#from_element=home_footer
+          - text: Get started for free
+          - img [ref=e513]
+      - generic [ref=e517]:
+        - link "Freepik Company" [ref=e519] [cursor=pointer]:
+          - /url: https://www.freepik.com
+          - img [ref=e520]
+        - generic [ref=e529]:
+          - generic [ref=e530]:
+            - button "Products" [expanded] [ref=e531]
+            - list [ref=e532]:
+              - listitem [ref=e533]:
+                - link "AI Assistant" [ref=e534] [cursor=pointer]:
+                  - /url: /pikaso/assistant
+              - listitem [ref=e535]:
+                - link "AI Image Generator" [ref=e536] [cursor=pointer]:
+                  - /url: /ai/image-generator
+              - listitem [ref=e537]:
+                - link "AI Video Generator" [ref=e538] [cursor=pointer]:
+                  - /url: /ai/video-generator
+              - listitem [ref=e539]:
+                - link "AI Voice Generator" [ref=e540] [cursor=pointer]:
+                  - /url: /ai/voice-generator
+              - listitem [ref=e541]:
+                - link "API" [ref=e542] [cursor=pointer]:
+                  - /url: /api
+              - listitem [ref=e543]:
+                - link "Android" [ref=e544] [cursor=pointer]:
+                  - /url: https://play.google.com/store/apps/details?id=com.freepikcompany.freepik
+              - listitem [ref=e545]:
+                - link "iOS" [ref=e546] [cursor=pointer]:
+                  - /url: https://apps.apple.com/us/app/freepik-ai-video-generator/id1664092086
+              - listitem [ref=e547]:
+                - link "All Freepik tools" [ref=e548] [cursor=pointer]:
+                  - /url: /ai
+          - generic [ref=e549]:
+            - button "Get started" [expanded] [ref=e550]
+            - list [ref=e551]:
+              - listitem [ref=e552]:
+                - link "Pricing" [ref=e553] [cursor=pointer]:
+                  - /url: /pricing?origin=freepik_web
+              - listitem [ref=e554]:
+                - link "Sell content" [ref=e555] [cursor=pointer]:
+                  - /url: https://contributor.freepik.com
+              - listitem [ref=e556]:
+                - link "Enterprise" [ref=e557] [cursor=pointer]:
+                  - /url: /enterprise
+              - listitem [ref=e558]:
+                - link "FAQ" [ref=e559] [cursor=pointer]:
+                  - /url: https://support.freepik.com/s/?language=en_US
+              - listitem [ref=e560]:
+                - link "AI Suite documentation" [ref=e561] [cursor=pointer]:
+                  - /url: /ai/docs
+              - listitem [ref=e562]:
+                - link "Terms of use" [ref=e563] [cursor=pointer]:
+                  - /url: /legal/terms-of-use#nav-freepik
+              - listitem [ref=e564]:
+                - link "Privacy policy" [ref=e565] [cursor=pointer]:
+                  - /url: /legal/privacy
+              - listitem [ref=e566]:
+                - link "Cookies policy" [ref=e567] [cursor=pointer]:
+                  - /url: /legal/cookies
+              - listitem [ref=e568]:
+                - button "Cookies settings" [ref=e626] [cursor=pointer]
+          - generic [ref=e570]:
+            - button "Company" [expanded] [ref=e571]
+            - list [ref=e572]:
+              - listitem [ref=e573]:
+                - link "About us" [ref=e574] [cursor=pointer]:
+                  - /url: /company/about-us
+              - listitem [ref=e575]:
+                - link "Careers" [ref=e576] [cursor=pointer]:
+                  - /url: https://freepik-company.factorialhr.com/
+              - listitem [ref=e577]:
+                - link "Search trends" [ref=e578] [cursor=pointer]:
+                  - /url: /tags
+              - listitem [ref=e579]:
+                - link "Blog" [ref=e580] [cursor=pointer]:
+                  - /url: https://www.freepik.com/blog/
+              - listitem [ref=e581]:
+                - link "Events" [ref=e582] [cursor=pointer]:
+                  - /url: /events
+              - listitem [ref=e583]:
+                - link "Magnific" [ref=e584] [cursor=pointer]:
+                  - /url: https://magnific.ai/
+              - listitem [ref=e585]:
+                - link "Slidesgo" [ref=e586] [cursor=pointer]:
+                  - /url: https://slidesgo.com/
+              - listitem [ref=e587]:
+                - link "Help center" [ref=e588] [cursor=pointer]:
+                  - /url: /profile/support
+          - generic [ref=e589]:
+            - generic [ref=e590]: Get in touch
+            - generic [ref=e591]:
+              - link [ref=e592] [cursor=pointer]:
+                - /url: https://www.facebook.com/Freepik
+                - img [ref=e593]
+              - link [ref=e595] [cursor=pointer]:
+                - /url: https://x.com/freepik
+                - img [ref=e596]
+              - link [ref=e598] [cursor=pointer]:
+                - /url: https://www.pinterest.es/freepik/
+                - img [ref=e599]
+              - link [ref=e601] [cursor=pointer]:
+                - /url: https://www.instagram.com/freepik
+                - img [ref=e602]
+              - link [ref=e606] [cursor=pointer]:
+                - /url: https://www.youtube.com/channel/UC9wPXN2TIWoUamqONb7v8Pw
+                - img [ref=e607]
+              - link [ref=e609] [cursor=pointer]:
+                - /url: https://www.linkedin.com/company/freepik-corp/
+                - img [ref=e610]
+              - link [ref=e612] [cursor=pointer]:
+                - /url: https://discord.gg/a9etNXNmYY
+                - img [ref=e613]
+              - link [ref=e615] [cursor=pointer]:
+                - /url: https://www.reddit.com/r/Freepik_AI/
+                - img [ref=e616]
+            - button "English" [ref=e619]:
+              - button "English" [ref=e620] [cursor=pointer]:
+                - text: English
+                - img [ref=e621]
+            - paragraph [ref=e624]: Copyright © 2010-2025 Freepik Company S.L. All rights reserved.
+    - region "Notifications (F8)":
+      - list
+  - alert [ref=e625]
+  - region "Cookie banner" [ref=e627]:
+    - dialog "Privacy" [ref=e628]:
+      - generic [ref=e630]:
+        - generic [ref=e633]: By clicking "Accept All Cookies", you agree to the storing of cookies on your device to enhance site navigation, analyze site usage, and assist in our marketing efforts.
+        - generic [ref=e635]:
+          - button "Cookies settings, Opens the preference center dialog" [ref=e636] [cursor=pointer]: Cookies settings
+          - button "Reject All" [ref=e637] [cursor=pointer]
+          - button "Accept All Cookies" [ref=e638] [cursor=pointer]

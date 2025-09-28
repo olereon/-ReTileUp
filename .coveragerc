@@ -1,0 +1,77 @@
+[run]
+# Coverage configuration for ReTileUp
+source = src/retileup
+branch = True
+omit =
+    */tests/*
+    */test_*
+    */__pycache__/*
+    */migrations/*
+    */venv/*
+    */env/*
+    */site-packages/*
+    setup.py
+    conftest.py
+    */conftest.py
+    */fixtures/*
+    */performance/*
+    */edge_cases/*
+
+# Concurrency settings
+concurrency = thread,multiprocessing
+
+# Data file location
+data_file = .coverage
+
+[report]
+# Reporting configuration
+exclude_lines =
+    pragma: no cover
+    def __repr__
+    if self.debug:
+    if settings.DEBUG
+    raise AssertionError
+    raise NotImplementedError
+    if 0:
+    if __name__ == .__main__.:
+    class .*\bProtocol\):
+    @(abc\.)?abstractmethod
+    @overload
+    # Type checking imports
+    if TYPE_CHECKING:
+    # Platform-specific code
+    if sys.platform
+
+ignore_errors = True
+show_missing = True
+skip_covered = False
+skip_empty = True
+sort = Cover
+
+# Precision
+precision = 2
+
+# Fail under threshold
+fail_under = 90
+
+[html]
+# HTML report configuration
+directory = htmlcov
+title = ReTileUp Test Coverage Report
+show_contexts = True
+
+[xml]
+# XML report configuration
+output = coverage.xml
+
+[json]
+# JSON report configuration
+output = coverage.json
+show_contexts = True
+pretty_print = True
+
+[paths]
+# Path mapping for coverage
+source =
+    src/retileup/
+    */site-packages/retileup/

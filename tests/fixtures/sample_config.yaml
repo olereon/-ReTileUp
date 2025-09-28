@@ -1,0 +1,125 @@
+# ReTileUp Sample Configuration File
+# This file contains sample configuration for testing
+
+# Global settings
+app_name: "ReTileUp"
+version: "1.0.0"
+debug: false
+
+# Default processing settings
+defaults:
+  format: "PNG"
+  quality: 95
+  optimize: true
+  preserve_metadata: true
+  create_directories: true
+  overwrite_existing: false
+
+# Tiling configuration
+tiling:
+  default_size: 256
+  default_overlap: 10
+  max_tiles_per_image: 1000
+  memory_limit_mb: 512
+  parallel_processing: true
+  num_workers: 4
+
+# Image processing settings
+image_processing:
+  supported_formats:
+    - PNG
+    - JPEG
+    - GIF
+    - BMP
+    - TIFF
+    - WEBP
+
+  conversion:
+    auto_orient: true
+    strip_metadata: false
+    optimize_for_web: true
+
+  validation:
+    max_file_size_mb: 100
+    min_dimensions: [1, 1]
+    max_dimensions: [10000, 10000]
+    check_corruption: true
+
+# Tool configurations
+tools:
+  tiling_tool:
+    enabled: true
+    priority: 1
+    config:
+      algorithm: "grid"
+      edge_handling: "clip"
+      coordinate_system: "image"
+
+  validation_tool:
+    enabled: true
+    priority: 0
+    config:
+      strict_mode: false
+      auto_fix: true
+
+# Output settings
+output:
+  base_directory: "./output"
+  structure:
+    use_timestamps: true
+    create_subdirs: true
+    naming_pattern: "{basename}_{index:03d}.{ext}"
+
+  metadata:
+    include_source_info: true
+    include_processing_info: true
+    include_timing_info: true
+
+# Logging configuration
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "retileup.log"
+  max_size_mb: 10
+  backup_count: 3
+
+# Performance settings
+performance:
+  cache_enabled: true
+  cache_size_mb: 128
+  prefetch_enabled: true
+  parallel_io: true
+  chunk_size_kb: 64
+
+# Workflow settings
+workflows:
+  web_optimize:
+    steps:
+      - validate_input
+      - optimize_for_web
+      - generate_thumbnails
+      - save_results
+
+    config:
+      thumbnail_sizes: [150, 300, 600]
+      web_formats: ["WEBP", "JPEG"]
+      compression_quality: 85
+
+  batch_tile:
+    steps:
+      - validate_input
+      - calculate_tiles
+      - process_tiles
+      - save_results
+
+    config:
+      tile_size: 512
+      overlap_percentage: 5
+      output_format: "PNG"
+
+# Testing configuration (for test environment)
+testing:
+  use_mock_data: false
+  skip_slow_tests: false
+  cleanup_temp_files: true
+  max_test_duration_seconds: 300
